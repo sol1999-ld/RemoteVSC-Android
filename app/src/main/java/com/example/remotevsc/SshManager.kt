@@ -135,6 +135,8 @@ class SshManager {
         } catch (e: Exception) {
             output = "Error executing command with session: ${e.message}"
             e.printStackTrace()
+        } finally {
+            channel?.disconnect()
         }
         output
     }
